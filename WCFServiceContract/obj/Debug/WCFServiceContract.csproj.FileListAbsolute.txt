@@ -1,0 +1,6 @@
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\bin\Debug\WCFServiceContract.dll
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\bin\Debug\WCFServiceContract.pdb
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\obj\Debug\WCFServiceContract.csprojAssemblyReference.cache
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\obj\Debug\WCFServiceContract.csproj.CoreCompileInputs.cache
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\obj\Debug\WCFServiceContract.dll
+F:\GitHub\AsyncWCF_CodeProject\WCFServiceContract\obj\Debug\WCFServiceContract.pdb
