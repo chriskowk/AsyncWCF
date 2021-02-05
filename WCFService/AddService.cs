@@ -18,18 +18,14 @@ namespace WCFService
         }
         public IAsyncResult BeginAdd(int number1, int number2, AsyncCallback callback, object state)
         {
-            AddAsyncResult asyncResult =
-                new AddAsyncResult(number1, number2, callback, state);
-
+            AddAsyncResult asyncResult = new AddAsyncResult(number1, number2, callback, state);
             ThreadPool.QueueUserWorkItem(new WaitCallback(Callback), asyncResult);
-
             return asyncResult;
         }
 
         public int EndAdd(IAsyncResult ar)
         {
             int result = 0;
-
             if (ar != null)
             {
                 using (AddAsyncResult asyncResult = ar as AddAsyncResult)
@@ -38,7 +34,6 @@ namespace WCFService
                         throw new ArgumentNullException("IAsyncResult parameter is null.");
 
                     asyncResult.AsyncWait.WaitOne();
-
                     result = asyncResult.Result;
                 }
             }
@@ -78,8 +73,8 @@ namespace WCFService
 
                         if (asyncResult.Exception != null)
                             throw asyncResult.Exception;
-                        asyncResult.AsyncWait.WaitOne();
 
+                        asyncResult.AsyncWait.WaitOne();
                         result = asyncResult.AddContract;
                     }
                 }
@@ -89,7 +84,6 @@ namespace WCFService
                 ErrorInfo err = new ErrorInfo(ex.Message, "EndAddDC faills");
                 throw new FaultException<ErrorInfo>(err, "reason goes here.");
             }
-
             return result;
         }
 
@@ -114,7 +108,6 @@ namespace WCFService
             try
             {
                 asyncResult = state as AddAsyncResult;
-
                 asyncResult.AddContract = InternalAdd(asyncResult.AddContract);
             }
             catch (Exception ex)
@@ -129,13 +122,13 @@ namespace WCFService
 
         private int InternalAdd(int number1, int number2)
         {
-            Thread.Sleep(TimeSpan.FromSeconds(20));
+            Thread.Sleep(TimeSpan.FromSeconds(20)); //模拟处理复杂运算
             return number1 + number2;
         }
 
         private AddDataContract InternalAdd(AddDataContract input)
         {
-            Thread.Sleep(TimeSpan.FromSeconds(20));
+            Thread.Sleep(TimeSpan.FromSeconds(20)); //模拟处理复杂运算
             input.Result = input.Nbr1 + input.Nbr2;
             return input;
         }

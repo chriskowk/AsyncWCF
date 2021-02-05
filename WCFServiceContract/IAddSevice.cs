@@ -14,7 +14,6 @@ namespace WCFServiceContract
 
         int EndAdd(IAsyncResult ar);
 
-
         [OperationContract(AsyncPattern = true)]
         [FaultContract(typeof(ErrorInfo))]
         IAsyncResult BeginAddDC(AddDataContract input, AsyncCallback callback, object state);

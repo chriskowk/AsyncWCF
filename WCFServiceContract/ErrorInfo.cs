@@ -15,8 +15,10 @@ namespace WCFServiceContract
             this.ErrorDetails = error;
             this.Reason = reason;
         }
+
         [DataMember]
         public string ErrorDetails { get; set; }
+
         [DataMember]
         public string Reason { get; set; }
     }
