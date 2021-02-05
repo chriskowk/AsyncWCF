@@ -9,6 +9,10 @@ namespace WCFCommon
 {
     public class ProxyFactory<T> : ClientBase<T> where T : class
     {
+        /// <summary>
+        /// 创建中间层代理
+        /// </summary>
+        /// <param name="endpoint">端点名称（App.config里面定义）</param>
         public ProxyFactory(string endpoint)
             : base(endpoint)
         {
@@ -16,9 +20,9 @@ namespace WCFCommon
         
         public T CreateProxy()
         {
-            T interFce = base.CreateChannel();
+            T svc = base.CreateChannel();
 
-            return interFce;
+            return svc;
         }
 
         public void CloseProxy()
