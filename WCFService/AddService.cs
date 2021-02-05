@@ -14,15 +14,14 @@ namespace WCFService
         #region IAddService Members
         public string SimpleMethod(string msg)
         {
-            return string.Format("Response from WCF service: {0}",msg);
+            return string.Format("Response from WCF service: {0}", msg);
         }
-        public IAsyncResult BeginAdd(int number1, int number2,AsyncCallback callback, object state)
+        public IAsyncResult BeginAdd(int number1, int number2, AsyncCallback callback, object state)
         {
             AddAsyncResult asyncResult =
                 new AddAsyncResult(number1, number2, callback, state);
 
-            ThreadPool.QueueUserWorkItem(new WaitCallback
-                (Callback), asyncResult);
+            ThreadPool.QueueUserWorkItem(new WaitCallback(Callback), asyncResult);
 
             return asyncResult;
         }
@@ -54,8 +53,7 @@ namespace WCFService
                 asyncResult = new AddAsyncResult(input, callback, state);
 
                 //Queues a method for execution. The method executes when a thread pool thread becomes available.
-                ThreadPool.QueueUserWorkItem(new WaitCallback
-                    (CallbackDC), asyncResult);
+                ThreadPool.QueueUserWorkItem(new WaitCallback(CallbackDC), asyncResult);
             }
             catch (Exception ex)
             {

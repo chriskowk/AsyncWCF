@@ -60,7 +60,7 @@ namespace ConsoleClient
                 _addServiceProxy = new ProxyFactory<IAddService>("AddService");
                 _service = _addServiceProxy.CreateProxy();
 
-                Console.WriteLine("Proxy created.");
+                Console.WriteLine("Service Proxy created.");
                 Console.WriteLine("Calling BeginAdd of WCF service");
                 IAsyncResult res = _service.BeginAddDC(input, new AsyncCallback(AddCallbackDC), _service);
 
